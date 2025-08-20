@@ -1,16 +1,15 @@
-import { useState } from 'react'
-import NavBar from './components/NavBar'
-import { BrowserRouter } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import "./App.css"
+import Home from './pages/Home'
+import Usuarios from './pages/Usuarios'
 
 function App() {
 
   return (
-    <>
-    <BrowserRouter>
-      <NavBar />
-    </BrowserRouter>  
-    </>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='usuarios' element={<Usuarios />} />
+    </Routes>
   )
 }
 

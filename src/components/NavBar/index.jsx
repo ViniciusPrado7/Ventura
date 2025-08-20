@@ -1,7 +1,8 @@
 import React from 'react'
-import { AppBar, Container, Toolbar, Typography } from '@mui/material'
+import { AppBar, Container, ListItemButton, Toolbar, Typography } from '@mui/material'
 import Menu from './Menu'
 import Carrinho from './Carrinho'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (
@@ -13,7 +14,12 @@ const NavBar = () => {
                         noWrap
                         sx={{ mr: 2, fontWeight: 700, letterSpacing: ".1rem", color: "inherit", textDecoration: "none" }}
                     >
-                        MinhaLogo
+                        <ListItemButton
+                            component={Link}
+                            to={"/"}
+                        >
+                            MinhaLogo
+                        </ListItemButton>
                     </Typography>
                     <Menu />
                     <Carrinho />
