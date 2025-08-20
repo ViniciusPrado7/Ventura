@@ -1,12 +1,39 @@
-# React + Vite
+# Ventura
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição
+Aplicação web de **e-commerce** desenvolvida em **React**, com funcionalidades de cadastro de usuários, catálogo de produtos, carrinho de compras e dashboard administrativo.
 
-Currently, two official plugins are available:
+## Tecnologias
+- React
+- React Router DOM
+- Material-UI (MUI)
+- React Icons
+- Styled Components / TailwindCSS (opcional)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
+- Cadastro, listagem e exclusão de usuários
+- To-do list (tarefas)
+- Catálogo de produtos com cards e grid responsivo
+- Carrinho de compras com cálculo de total
+- Dashboard com visão geral de usuários, produtos e tarefas
+- Rotas protegidas com login fake
+- Integração com APIs externas (JSONPlaceholder e FakeStoreAPI)
 
-## Expanding the ESLint configuration
+## Estrutura do Projeto
+O projeto possui pastas para:
+- **components/**: Componentes reutilizáveis (Navbar, UserCard, ProductCard)
+- **pages/**: Páginas do app (Usuários, Produtos, Carrinho, Dashboard)
+- **assets/**: Imagens e ícones
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+O `App.jsx` controla as rotas e o layout principal, e o `index.jsx` é o ponto de entrada da aplicação.
+
+## Como Rodar
+1. Clone o repositório: git clone https://github.com/seu-usuario/ventura.git
+2. Instale as dependências: npm install
+3. Rode o projeto em modo de desenvolvimento: npm run dev
+4. Abra o navegador em: http://localhost:5173 (Vite) ou conforme o console indicar.
+
+## Observações
+- Projeto criado para aprendizado e prática de React e e-commerce.
+- APIs externas usadas apenas para mock de dados.
+- Funcionalidades de login e autenticação são simuladas.
