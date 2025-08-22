@@ -1,9 +1,10 @@
-import { Box, Drawer, IconButton, Typography } from '@mui/material';
+import { Box, Drawer, IconButton, Typography, useTheme } from '@mui/material';
 import React, { useState } from 'react'
 import { IoCart, IoClose } from "react-icons/io5";
 
 const Carrinho = () => {
 
+    const theme = useTheme();
     const [open, setOpen] = useState(false)
 
     const toggleDrawer = (status) => () => {
@@ -36,7 +37,7 @@ const Carrinho = () => {
                         alignItems: "center",
                         mb: 2
                     }}>
-                        <Typography variant='h6'>
+                        <Typography variant='h6' sx={{ color: theme.palette.azul.main }}>
                             Carrinho
                         </Typography>
                         <IconButton onClick={toggleDrawer(false)}>

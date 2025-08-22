@@ -4,13 +4,25 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import NavBar from './components/NavBar/index.jsx'
 import { ToastContainer } from 'react-toastify'
+import Footer from './components/Footer/index.jsx'
+import theme from './Theme.js'
+import { ThemeProvider } from '@mui/material'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <NavBar />
-      <App />
-      <ToastContainer position='top-center' />
+      <div className="app-container">
+        <ThemeProvider theme={theme}>
+        <NavBar />
+        <main>
+          <App />
+        </main>
+        <ToastContainer position='top-center' />
+        <Footer />
+        </ThemeProvider>
+      </div>
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 )
+
+ 

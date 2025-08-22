@@ -1,17 +1,18 @@
-import { Card, CardContent, Typography, Button, Box } from '@mui/material'
-
-const azulClaro = '#1976d2'
+import { Card, CardContent, Typography, Button, Box, useTheme } from '@mui/material'
 
 const CardGenerico = ({ titulo, dados, onExcluir }) => {
+
+  const theme = useTheme();
+
   return (
     <Card sx={{
       minWidth: 400,
       width: "auto",
-      border: "1px solid gray",
+      border: `2px solid ${theme.palette.azul.main}`,
       m: 1
     }}>
       <CardContent sx={{ display: "flex", flexDirection: 'column', alignItems: "start" }}>
-        <Typography variant="h6" color={azulClaro}>
+        <Typography variant="h6" color={theme.palette.azul.main}>
           {titulo}
         </Typography>
 

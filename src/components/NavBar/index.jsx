@@ -1,12 +1,15 @@
 import React from 'react'
-import { AppBar, Container, ListItemButton, Toolbar, Typography } from '@mui/material'
+import { AppBar, Container, ListItemButton, Toolbar, Typography, useTheme } from '@mui/material'
 import Menu from './Menu'
 import Carrinho from './Carrinho'
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
+
+    const theme = useTheme();
+
     return (
-        <AppBar position="static" color='default'>
+        <AppBar position="static" sx={{background: theme.palette.azul.main}}>
             <Container maxWidth="x1">
                 <Toolbar>
                     <Typography
