@@ -1,4 +1,4 @@
-import { Box, Button, Input, List, ListItem, Pagination } from '@mui/material'
+import { Box, Button, Input, List, ListItem,  Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 
@@ -7,7 +7,6 @@ const azulClaro = '#1976d2';
 const Tarefas = () => {
     
     const notifySuccess = (msg) => toast.success(msg)
-
 
     const [novaTarefa, setNovaTarefa] = useState("")
     const [listaTarefas, setListaTarefas] = useState([])
@@ -44,15 +43,18 @@ const Tarefas = () => {
                     gap: 2
                 }}
             >
+                <Typography variant='h5' sx={{alignSelf: "center", color: azulClaro}}> Lista de Tarefas</Typography>
                 <List >
                     {listaTarefas.map((tarefa, index) => (
-                        <ListItem sx={{border: "1px solid gray", mt: 1}}
+                        <ListItem sx={{border: "1px solid gray", mt: 1, borderRadius: 1}}
                             key={index}      
                         >
                             {tarefa}
                             <Button
                                 onClick={() => removerTarefa(index)}
-                                 sx={{ backgroundColor: azulClaro, color: 'white', ml:'auto'}}                              
+                                 color="error"
+                                 variant='outlined'
+                                 sx={{  ml:'auto'}}                              
                             >
                                 remover
                             </Button>

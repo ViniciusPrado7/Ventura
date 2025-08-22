@@ -1,17 +1,15 @@
-import { Box, Grid } from '@mui/material'
+import { Box } from '@mui/material'
 import FormCadastro from '../components/FormCadastro'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import CardUsuario from '../components/CardUsuario'
+import CardGenerico from '../components/CardGenerico'
 
 const Usuarios = () => {
-
   const [nome, setNome] = useState("")
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
   const [telefone, setTelefone] = useState("")
   const [usuarios, setUsuarios] = useState([])
-
 
   const notifyError = (msg) => toast.error(msg)
   const notifySuccess = (msg) => toast.success(msg)
@@ -37,11 +35,12 @@ const Usuarios = () => {
     setTelefone("")
     setSenha("")
   }
+
   const excluirUsuario = (index) => {
     const novosUsuarios = [...usuarios]
     novosUsuarios.splice(index, 1)
     setUsuarios(novosUsuarios)
-    notifySuccess("Usuário excluido!")
+    notifySuccess("Usuário excluído!")
   }
 
   return (
@@ -57,18 +56,23 @@ const Usuarios = () => {
         setSenha={setSenha}
         cadastro={Cadastro}
       />
-      <Box sx={{ p: 3 }}>
-        <Grid container spacing={2}>
-          {usuarios.map((usuario, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <CardUsuario
-                usuario={usuario}
-                onExcluir={() => excluirUsuario(index)}
-              />
-            </Grid>
-          ))}
-        </Grid>
+
+      <Box sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'flex-start',
+        p: 2
+      }}>
+        {usuarios.map((usuario, index) => (
+          <CardGenerico
+            key={index}
+            titulo="Card usuário"
+            dados={{ Nome: usuario.nome, Email: usuario.email, Telefone: usuario.telefone }}
+            onExcluir={() => excluirUsuario(index)}
+          />
+        ))}
       </Box>
+
     </>
   )
 }
