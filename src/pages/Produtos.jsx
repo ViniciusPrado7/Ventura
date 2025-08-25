@@ -8,19 +8,19 @@ const Produtos = () => {
       id: 1,
       Nome: "Camisa Polo",
       Preço: "R$ 79,90",
-      Imagem: "https://via.placeholder.com/200x150.png?text=Camisa+Polo"
+      Imagem: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400"
     },
     {
       id: 2,
       Nome: "Calça Jeans",
       Preço: "R$ 149,90",
-      Imagem: "https://via.placeholder.com/200x150.png?text=Calça+Jeans"
+      Imagem: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400"
     },
     {
       id: 3,
       Nome: "Tênis Esportivo",
       Preço: "R$ 199,90",
-      Imagem: "https://via.placeholder.com/200x150.png?text=Tênis+Esportivo"
+      Imagem: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400"
     }
   ])
 
