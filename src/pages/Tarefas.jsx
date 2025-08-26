@@ -1,11 +1,11 @@
-import { Box, Button, Input, List, ListItem,  Typography } from '@mui/material'
+import { Box, Button, Input, List, ListItem,  Typography, useTheme } from '@mui/material'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 
-const azulClaro = '#1976d2';
-
 const Tarefas = () => {
-    
+
+    const theme = useTheme();
+
     const notifySuccess = (msg) => toast.success(msg)
 
     const [novaTarefa, setNovaTarefa] = useState("")
@@ -43,7 +43,7 @@ const Tarefas = () => {
                     gap: 2
                 }}
             >
-                <Typography variant='h5' sx={{alignSelf: "center", color: azulClaro}}> Lista de Tarefas</Typography>
+                <Typography variant='h5' sx={{alignSelf: "center", color: theme.palette.azul.main}}> Lista de Tarefas</Typography>
                 <List >
                     {listaTarefas.map((tarefa, index) => (
                         <ListItem sx={{border: "1px solid gray", mt: 1, borderRadius: 1}}
@@ -69,7 +69,7 @@ const Tarefas = () => {
                 />
                 <Button
                     onClick={addTarefa}
-                    sx={{ backgroundColor: azulClaro, color: 'white', alignSelf: 'center', mt: 2 }}
+                    sx={{ backgroundColor: theme.palette.azul.main, color: 'white', alignSelf: 'center', mt: 2 }}
                 >
                     Adicionar tarefa
                 </Button>

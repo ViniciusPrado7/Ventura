@@ -7,11 +7,15 @@ import { ToastContainer } from 'react-toastify'
 import Footer from './components/Footer/index.jsx'
 import theme from './Theme.js'
 import { ThemeProvider } from '@mui/material'
+import { CarrinhoProvider } from './context/CarrinhoContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <div className="app-container">
+        <CarrinhoProvider>
+
+     
         <ThemeProvider theme={theme}>
         <NavBar />
         <main>
@@ -20,6 +24,7 @@ createRoot(document.getElementById('root')).render(
         <ToastContainer position='top-center' />
         <Footer />
         </ThemeProvider>
+          </CarrinhoProvider>
       </div>
     </BrowserRouter>
   </StrictMode>

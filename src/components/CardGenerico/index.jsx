@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography, Button, Box, useTheme, CardMedia } from '@mui/material'
+import { Card, CardContent, Typography, Box, useTheme, CardMedia } from '@mui/material'
 
 const CardGenerico = ({ titulo, dados, children }) => {
   const theme = useTheme();
