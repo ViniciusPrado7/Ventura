@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material'
+import { Box, Button, Grid } from '@mui/material'
 import React, { useState } from 'react'
 import CardGenerico from '../components/CardGenerico'
 
@@ -47,8 +47,24 @@ const Produtos = () => {
                 Preço: produto.Preço,
                 Imagem: produto.Imagem
               }}
-              onExcluir={() => removerProduto(produto.id)}
-            />
+            >
+              <Button
+                variant="outlined"
+                color="error"
+                onClick={() => removerProduto(produto.id)}
+              >
+                Excluir
+              </Button>
+
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => console.log(`Comprou: ${produto.Nome}`)}
+              >
+                Comprar
+              </Button>
+            </CardGenerico>
+
           </Grid>
         ))}
       </Grid>

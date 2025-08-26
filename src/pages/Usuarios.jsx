@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import FormCadastro from '../components/FormCadastro'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
@@ -68,8 +68,16 @@ const Usuarios = () => {
             key={index}
             titulo="Card usuário"
             dados={{ Nome: usuario.nome, Email: usuario.email, Telefone: usuario.telefone }}
-            onExcluir={() => excluirUsuario(index)}
-          />
+          >
+            <Button
+              variant="outlined"
+              color="error"
+              onClick={() => excluirUsuario(index)}
+            >
+              Excluir
+            </Button>
+          </CardGenerico>
+
         ))}
       </Box>
 

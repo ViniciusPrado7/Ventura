@@ -1,6 +1,6 @@
 import { Card, CardContent, Typography, Button, Box, useTheme, CardMedia } from '@mui/material'
 
-const CardGenerico = ({ titulo, dados, onExcluir }) => {
+const CardGenerico = ({ titulo, dados, children }) => {
   const theme = useTheme();
 
   return (
@@ -32,16 +32,13 @@ const CardGenerico = ({ titulo, dados, onExcluir }) => {
           )
         ))}
 
-        {onExcluir && (
-          <Box sx={{ mt: 2 }}>
-            <Button variant="outlined" color="error" onClick={onExcluir}>
-              Excluir
-            </Button>
-          </Box>
-        )}
+        <Box sx={{ mt: 2, display: "flex", gap: 1 }}>
+          {children}
+        </Box>
       </CardContent>
     </Card>
   )
 }
+
 
 export default CardGenerico
