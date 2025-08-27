@@ -5,29 +5,29 @@ import { useCarrinhoContext } from '../context/useCarrinhoContext';
 
 const Produtos = () => {
   const theme = useTheme();
-  
-  const {adicionarProduto} = useCarrinhoContext();
+
+  const { adicionarProduto } = useCarrinhoContext();
 
   const [produtos, setProdutos] = useState([
-  {
-    id: 1,
-    Nome: "Camisa Polo",
-    preco: 79.90, 
-    Imagem: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400"
-  },
-  {
-    id: 2,
-    Nome: "Calça Jeans",
-    preco: 149.90,
-    Imagem: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400"
-  },
-  {
-    id: 3,
-    Nome: "Tênis Esportivo",
-    preco: 199.90,
-    Imagem: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400"
-  }
-])
+    {
+      id: 1,
+      Nome: "Camisa Polo",
+      preco: 79.90,
+      Imagem: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400"
+    },
+    {
+      id: 2,
+      Nome: "Calça Jeans",
+      preco: 149.90,
+      Imagem: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400"
+    },
+    {
+      id: 3,
+      Nome: "Tênis Esportivo",
+      preco: 199.90,
+      Imagem: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400"
+    }
+  ])
 
 
   const removerProduto = (id) => {
@@ -49,7 +49,7 @@ const Produtos = () => {
           <Grid item key={produto.id}>
             <CardGenerico
               titulo={produto.Nome}
-              dados={produto} 
+              dados={produto}
             >
               <Button
                 variant="contained"

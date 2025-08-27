@@ -7,8 +7,7 @@ const Carrinho = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
-
-  const { carrinho, removerProduto } = useCarrinhoContext();
+  const { carrinho, removerProduto, valorTotal } = useCarrinhoContext();
 
   const toggleDrawer = (status) => () => {
     setOpen(status);
@@ -49,26 +48,34 @@ const Carrinho = () => {
           </Box>
 
           {carrinho.length === 0 ? (
-  <Typography>Seu carrinho está vazio</Typography>
-) : (
-  <List>
-    {carrinho.map((produto) => (
-      <ListItem key={produto.id} 
-        secondaryAction={
-          <IconButton edge="end" color="error" onClick={() => removerProduto(produto.id)}>
-            <IoClose />
-          </IconButton>
-        }
-      >
-        <ListItemText 
-          primary={produto.Nome} 
-          secondary={`R$ ${produto.preco.toFixed(2)}`} 
-        />
-      </ListItem>
-    ))}
-  </List>
-)}
+            <Typography>Seu carrinho está vazio</Typography>
+          ) : (
+            <>
+              <List>
+                {carrinho.map((produto) => (
+                  <ListItem key={produto.id}
+                    secondaryAction={
+                      <IconButton edge="end" color="error" onClick={() => removerProduto(produto.id)}>
+                        <IoClose />
+                      </IconButton>
+                    }
+                  >
+                    <ListItemText
+                      primary={`${produto.Nome} (x${produto.quantidade})`}
+                      secondary={`R$ ${(produto.preco * produto.quantidade).toFixed(2)}`}
+                    />
+                  </ListItem>
+                ))}
+              </List>
 
+              <Box sx={{ mt: 2, display: "flex", justifyContent: "space-between" }}>
+                <Typography variant="subtitle1">Total:</Typography>
+                <Typography variant="subtitle1" fontWeight="bold">
+                  R$ {valorTotal.toFixed(2)}
+                </Typography>
+              </Box>
+            </>
+          )}
         </Box>
       </Drawer>
     </>

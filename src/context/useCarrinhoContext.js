@@ -15,11 +15,11 @@ const removerProdutoAction = (produtoId) => ({
 
 const updateQuantidadeAction = (produtoId, quantidade) => ({
     type: UPDATE_QUANTIDADE,
-    payload: {produtoId, quantidade}
+    payload: { produtoId, quantidade }
 })
 
 export const useCarrinhoContext = () => {
-    const { carrinho, dispatch, quantidade, valorTotal} =useContext(CarrinhoContext)
+    const { carrinho, dispatch, quantidade, valorTotal } = useContext(CarrinhoContext)
 
     function adicionarProduto(novoProduto) {
         dispatch(addProdutoAction(novoProduto))
@@ -28,7 +28,7 @@ export const useCarrinhoContext = () => {
     function removerProduto(id) {
         const produto = carrinho.find((item) => item.id === id);
 
-        if(produto && produto.quantidade > 1) {
+        if (produto && produto.quantidade > 1) {
             dispatch(updateQuantidadeAction(id, produto.quantidade - 1));
         } else {
             dispatch(removerProdutoAction(id));
@@ -44,6 +44,7 @@ export const useCarrinhoContext = () => {
         adicionarProduto,
         removerProduto,
         removerProdutoAction,
+        removerProdutoCarrinho,
         valorTotal,
         quantidade
     }

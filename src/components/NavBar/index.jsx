@@ -1,15 +1,14 @@
-import React from 'react'
-import { AppBar, Container, ListItemButton, Toolbar, Typography, useTheme } from '@mui/material'
-import Menu from './Menu'
-import Carrinho from './Carrinho'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { AppBar, Container, ListItemButton, Toolbar, Typography, useTheme } from '@mui/material';
+import Menu from './Menu';
+import CarrinhoSuspenso from '../CarrinhoSuspenso';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
-
     const theme = useTheme();
 
     return (
-        <AppBar position="static" sx={{background: theme.palette.azul.main}}>
+        <AppBar position="static" sx={{ background: theme.palette.azul.main }}>
             <Container maxWidth="x1">
                 <Toolbar>
                     <Typography
@@ -17,21 +16,16 @@ const NavBar = () => {
                         noWrap
                         sx={{ mr: 2, fontWeight: 700, letterSpacing: ".1rem", color: "inherit", textDecoration: "none" }}
                     >
-                        <ListItemButton
-                            component={Link}
-                            to={"/"}
-                        >
+                        <ListItemButton component={Link} to={"/"}>
                             MinhaLogo
                         </ListItemButton>
                     </Typography>
                     <Menu />
-                    <Carrinho />
+                    <CarrinhoSuspenso />
                 </Toolbar>
             </Container>
         </AppBar>
+    );
+};
 
-
-    )
-}
-
-export default NavBar
+export default NavBar;
