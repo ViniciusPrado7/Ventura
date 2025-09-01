@@ -1,4 +1,4 @@
-import { Box, Button, Grid, useTheme } from '@mui/material'
+import { Box, Button, Grid, Typography, useTheme } from '@mui/material'
 import React, { useState } from 'react'
 import CardGenerico from '../components/CardGenerico'
 import { useCarrinhoContext } from '../context/useCarrinhoContext';
@@ -36,40 +36,37 @@ const Produtos = () => {
 
   return (
     <Box
-      sx={{
+    sx={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         minHeight: "75vh",
-        p: 3
-      }}
-    >
-      <Grid container spacing={2} justifyContent="center">
+        p: 3,
+        flexDirection: 'column'
+      }}>
+       <Typography variant='h5' sx={{mb: 8, color: theme.palette.azul.hover, bold: 800}}> Produtos que estão bombando</Typography>
+      <Box>
+      <Grid sx={{}} container spacing={2} justifyContent="center">
         {produtos.map((produto) => (
-          <Grid item key={produto.id}>
+          <Grid sx={{width: 500}} item key={produto.id}>
             <CardGenerico
               titulo={produto.Nome}
               dados={produto}
             >
               <Button
                 variant="contained"
-                sx={{ background: theme.palette.azul.main }}
+                sx={{ background: theme.palette.azul.main, '&:hover': { backgroundColor: theme.palette.azul.hover } }}
                 onClick={() => adicionarProduto(produto)}
               >
-                Comprar
-              </Button>
-              <Button
-                variant="outlined"
-                color="error"
-                onClick={() => removerProduto(produto.id)}
-              >
-                Excluir
+                Adicionar ao carrinho
               </Button>
             </CardGenerico>
           </Grid>
         ))}
       </Grid>
     </Box>
+    </Box>
+    
   )
 }
 
