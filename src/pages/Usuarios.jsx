@@ -2,7 +2,7 @@ import { Box, Button } from '@mui/material'
 import FormCadastro from '../components/FormCadastro'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import CardGenerico from '../components/CardGenerico'
+import CardUsuario from '../components/Cards/CardUsuario'
 
 const Usuarios = () => {
   const [nome, setNome] = useState("")
@@ -22,11 +22,18 @@ const Usuarios = () => {
     return true
   }
 
-  function Cadastro(e) {
+  const Cadastro = (e) => {
     e.preventDefault()
     if (!validarCampos()) return
 
-    const novoUsuario = { nome, email, telefone, senha }
+    const novoUsuario = {
+      nome,
+      email,
+      telefone,
+      senha,
+      tipo: "usuário" // Agora o card vai exibir o tipo
+    }
+
     setUsuarios([...usuarios, novoUsuario])
     notifySuccess("Usuário Cadastrado!")
 
@@ -64,10 +71,9 @@ const Usuarios = () => {
         p: 2
       }}>
         {usuarios.map((usuario, index) => (
-          <CardGenerico
+          <CardUsuario
             key={index}
-            titulo="Card usuário"
-            dados={{ Nome: usuario.nome, Email: usuario.email, Telefone: usuario.telefone }}
+            usuario={usuario}
           >
             <Button
               variant="outlined"
@@ -76,11 +82,9 @@ const Usuarios = () => {
             >
               Excluir
             </Button>
-          </CardGenerico>
-
+          </CardUsuario>
         ))}
       </Box>
-
     </>
   )
 }

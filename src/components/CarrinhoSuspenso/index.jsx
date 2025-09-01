@@ -38,9 +38,9 @@ const CarrinhoSuspenso = () => {
 
       <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
         <Box sx={{ width: 360, display: 'flex', flexDirection: 'column', height: '100vh' }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2,  background: theme.palette.azul.main, p: 2 }}>
-            <Typography variant="h6" sx={{color: "white"}}>Carrinho</Typography>
-            <IconButton sx={{color: "white"}} onClick={toggleDrawer(false)}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2, background: theme.palette.azul.main, p: 2 }}>
+            <Typography variant="h6" sx={{ color: "white" }}>Carrinho</Typography>
+            <IconButton sx={{ color: "white" }} onClick={toggleDrawer(false)}>
               <IoClose size={24} />
             </IconButton>
           </Box>
@@ -51,7 +51,7 @@ const CarrinhoSuspenso = () => {
             <>
               <List sx={{ flexGrow: 1 }}>
                 {carrinho.map((item) => (
-                  <ListItem key={item.id} alignItems="flex-start" sx={{ display: 'flex', alignItems: 'center', mb: 1, p: 2,  '&:hover': { backgroundColor: '#f5f5f5' }, borderBottom: "1px solid black" }}>
+                  <ListItem key={item.id} alignItems="flex-start" sx={{ display: 'flex', alignItems: 'center', mb: 1, p: 2, '&:hover': { backgroundColor: '#f5f5f5' }, borderBottom: "1px solid black" }}>
                     <ListItemAvatar>
                       <Avatar
                         src={item.Imagem}
@@ -61,16 +61,16 @@ const CarrinhoSuspenso = () => {
                       />
                     </ListItemAvatar>
 
-                    <ListItemText 
-                    sx={{mb: 1}}
+                    <ListItemText
+                      sx={{ mb: 1 }}
                       primary={item.Nome}
                       secondary={
                         <Box sx={{ display: 'flex', flexDirection: 'column', mt: 1, gap: 1 }}>
-                          <Typography component="span" variant="subtitle1" color="text.primary">
+                          <Typography component="span" color="text.primary" sx={{fontSize: ".95rem"}}>
                             Quantidade:
                           </Typography>
 
-                          <Box sx={{ display: 'flex', alignItems: 'center', mt: .8}}>
+                          <Box sx={{ display: 'flex', alignItems: 'center', mt: .8 }}>
                             <Button sx={{ borderRadius: 10, padding: .2, minWidth: .2 }} variant="outlined" onClick={() => removerProduto(item.id)}>-</Button>
                             <Typography sx={{ mx: 1 }}>{item.quantidade}</Typography>
                             <Button sx={{ borderRadius: 10, padding: .2, minWidth: .2 }} variant="outlined" onClick={() => adicionarProduto(item)}>+</Button>
